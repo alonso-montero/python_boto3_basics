@@ -281,5 +281,22 @@ By default, python opens the file on read mode and as a text file
 f = open("test.txt", "rt")
 ```
 
+```python
+file = open('list.txt')
+Lines = file.readlines()
+for line in Lines:
+        print(line)
+```
 
+## Running bash commands from Python
+
+You can use the subprocess library to run bash command directly from python
+
+```python
+import subprocess
+command = 'date'
+p = subprocess.run(command,shell=True)
+```
+
+## Putting it all together
 
