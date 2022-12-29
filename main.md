@@ -234,3 +234,52 @@ myfamily = {
   }
 }
 ```
+
+## Functions
+
+A function is a piece of code that only runs when called
+You define a function using the `def` keyword.
+
+```python
+def my_function():
+    print('This is a function')
+```
+
+A function can take data in order to perform its functions. These are called parameters or arguments
+
+```python
+def add(a,b):
+    print(a+b)
+```
+
+A function can return a data as a result of its code
+
+
+```python
+def add(a,b):
+    result = a+b
+    return result
+```
+
+## File Handling
+
+You can use the `open()` function to open files in python
+This function takes the filename and a mode as arguments.
+
+* `r` - Read mode
+* `a` - Append mode
+* `w` - Write mode
+* `x` - Create mode
+
+```python
+f = open("test.txt")
+```
+
+By default, python opens the file on read mode and as a text file
+
+```python
+f = open("test.txt", "rt")
+```
+
+
+
