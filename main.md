@@ -50,7 +50,7 @@ print(type(y))
 
 Variables are case sensitive.
 
-## Booleans
+## Booleans and Conditions
 
 Booleans represent True or False
 
@@ -58,6 +58,15 @@ Booleans represent True or False
 print(1>2)
 print(1<2)
 ```
+
+Logical conditions in python:
+
+* Equals: `a == b`
+* Not Equals: `a != b`
+* Less than: `a < b`
+* Less than or equal to: `a <= b`
+* Greater than: `a > b`
+* Greater than or equal to: `a >= b`
 
 ```python
 a = 2
@@ -69,3 +78,159 @@ else:
   print("b is not greater than a")
 ```
 
+## Loops
+
+You can use a while loop to execute a statement as long as the condition is true
+
+```python
+i = 1
+while i < 10:
+  print(i)
+  i += 1
+```
+
+You can use a break to stop a loop
+
+```python
+i = 1
+while i < 10:
+  print(i)
+  if i == 5:
+    break
+  i += 1
+```
+
+You can also use a for loop. It executes a statement for each item in a list
+
+```python
+my_list=["car","train","plane"]
+for x in my_list:
+    print(x)
+```
+
+To use the for loop an speficied number of times, you can use the `range()` function
+
+```python
+for x in range(10):
+  print(x)
+```
+
+## Lists
+
+We will pay more attention to lists as boto3 uses lists and dictionaries as most return types
+Lists store multiple items on a single variable
+
+```python
+my_list=["car","train","plane"]
+print(my_list)
+```
+
+List items are ordered, changeable, and allow duplicate values.
+
+```python
+my_list=["car","train","plane"]
+print(my_list)
+my_list=["car","train","plane","car"]
+print(my_list)
+```
+
+The fist item of a list is [0]
+[-1] is the last item of a list
+
+```python
+my_list=["car","train","plane"]
+print(my_list[0])
+print(my_list[1])
+```
+
+You can ask python the length of a list
+
+```python
+my_list=["car","train","plane"]
+print(len(my_list))
+```
+
+You can check if an item exists on a list
+
+```python
+my_list=["car","train","plane"]
+if "car" in my_list:
+    print("Yes")
+```
+
+You can loop through a list
+
+```python
+my_list=["car","train","plane"]
+for x in my_list:
+    print(x)
+```
+
+## Dictionaries
+
+Boto3 uses dictionaries extensively as well, so we will look better into them
+Dictionaries are used to define key:value pairs
+
+```python
+my_dict={
+    "brand":"Toyota"
+    "model":"Corolla"
+    "year":"1989"
+}
+```
+
+You can access items by calling its key name
+
+```python
+my_dict={
+    "brand":"Toyota"
+    "model":"Corolla"
+    "year":"1989"
+}
+x = my_dict['model']
+```
+
+You can loop through a dictionary in multiple ways:
+
+Print "key" names:
+
+```python
+my_dict={
+    "brand":"Toyota"
+    "model":"Corolla"
+    "year":"1989"
+}
+for x in my_dict:
+    print(x)
+```
+
+Print "values"
+
+```python
+my_dict={
+    "brand":"Toyota"
+    "model":"Corolla"
+    "year":"1989"
+}
+for x in my_dict:
+    print(my_dict[x])
+```
+
+A dictionary can contain other dictionaries inside:
+
+```python
+myfamily = {
+  "car1" : {
+    "Brand" : "Toyota",
+    "Name" : "Corolla"
+  },
+  "car2" : {
+    "Brand" : "Nissan",
+    "Name" : "Sentra"
+  },
+  "car3" : {
+    "Brand" : "Honda",
+    "Name" : "Civic"
+  }
+}
+```
