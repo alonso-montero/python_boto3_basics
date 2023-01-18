@@ -9,5 +9,11 @@ pip3 install boto3
 You also need to configure AWS credentials
 This will depend on how you already have them configured.
 
-The easiest way is to create the credentials file ~/.aws/credentials and add your access key and secret access key.
+The easiest way is to create the credentials file `~/.aws/credentials` and add your access key and secret access key.
+For example:
 
+```
+[default]
+aws_access_key_id = YOUR_ACCESS_KEY
+aws_secret_access_key = YOUR_SECRET_KEY
+```
