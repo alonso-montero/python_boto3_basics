@@ -45,7 +45,7 @@ import boto3
 
 ec2 = boto3.client('ec2')
 response = ec2.describe_instances( InstanceIds=[
-        'i-0705660b11abfdeb0',
+        'string',
     ])
 print(response)
 ```
@@ -111,4 +111,5 @@ Take notice that we need to verify that the 'Tags' keys exists on the reservatio
 
 Error cases like this need to be taken into account when dealing with this sort of code. Before performing important operation, please run tests to verify everything runs as it should.
 
-
+Currently we have only retrieved information. But boto3 allows us to do much more than that.
+In the following example, we will 
