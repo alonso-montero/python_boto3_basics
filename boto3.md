@@ -112,4 +112,52 @@ Take notice that we need to verify that the 'Tags' keys exists on the reservatio
 Error cases like this need to be taken into account when dealing with this sort of code. Before performing important operation, please run tests to verify everything runs as it should.
 
 Currently we have only retrieved information. But boto3 allows us to do much more than that.
-In the following example, we will 
+
+In the following example, we will start a stopped instance, verify if the instance is running and then stop it again.
+
+We will also create some functions to do this
+
+```python
+import boto3
+import time 
+
+def stop_instance(instanceID: str):
+    ec2 = boto3.client('ec2')
+    response = ec2.stop_instances(InstanceIds=[instanceID])
+
+def start_instance(instanceID: str):
+    ec2 = boto3.client('ec2')
+    response = ec2.start_instances(InstanceIds=[instanceID])
+
+def is_running(instanceID: str) -> bool:
+    ec2 = boto3.client('ec2')
+    response = ec2.describe_instances( InstanceIds=[
+        instanceID,
+    ])
+    for r in response['Reservations']:
+        for i in r['Instances']:
+            if i['State']['Name'] == 'running':
+                return True
+            else:
+                return False
+
+def main():
+    instance= 'i-xxxxx'
+    start_instance(instance)
+    print('Starting instance')
+    while is_running(instance) != True:
+        print("Instance is not runnning")
+        time.sleep(2)
+    stop_instance(instance)
+    print('Stopping instance') 
+
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception as e:
+        print(f'Unexpected error: {e}')
+
+
+
+```
+
